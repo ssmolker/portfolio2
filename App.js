@@ -9,7 +9,8 @@ import DisplayAnImage from './components/manga'
 import DisplayAnime from './components/anime'
 import MTitles from './components/mangaTitles' 
 import ATitles from './components/animeTitles' 
-import Details from './components/addCart';
+import Details from './components/mDetails';
+import AnimeDetails from './components/aDetails';
 
 function HomeScreen({ navigation }) {
   return (
@@ -72,6 +73,7 @@ function animeScreen({ navigation }) {
       <Button title="Logout" onPress={() => navigation.navigate('Login')}></Button>
       <DisplayAnime/>
       <ATitles/>
+      <AnimeDetails/>
     </View>
   );
 }
@@ -92,7 +94,7 @@ const Stack = createStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Manga">
+      <Stack.Navigator initialRouteName="Anime">
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Login" component={loginScreen} />
         <Stack.Screen name="Manga" component={mangaScreen} />
