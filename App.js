@@ -8,6 +8,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import DisplayAnImage from './components/manga'
 import DisplayAnime from './components/anime'
 import MTitles from './components/mangaTitles' 
+import ATitles from './components/animeTitles' 
 
 function HomeScreen({ navigation }) {
   return (
@@ -69,14 +70,18 @@ function animeScreen({ navigation }) {
       <Button title="Cart" onPress={() => navigation.navigate('Cart')}></Button>
       <Button title="Logout" onPress={() => navigation.navigate('Login')}></Button>
       <DisplayAnime/>
+      <ATitles/>
     </View>
   );
 }
 
 function cartScreen({ navigation }) {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Cart Screen</Text>
+    <View>
+      <Text style={{ textAlign:'center', fontWeight:'bold', fontSize:90 }}>Shopping Cart</Text>
+      <Button title="Anime" onPress={() => navigation.navigate('Anime')}></Button>
+      <Button title="Manga" onPress={() => navigation.navigate('Manga')}></Button>
+      <Button title="Logout" onPress={() => navigation.navigate('Login')}></Button>
     </View>
   );
 }
