@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { View, Text, Button, TextInput, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-//import LoginForm from './components/login'
 import DisplayAnImage from './components/manga'
 import DisplayAnime from './components/anime'
 import MTitles from './components/mangaTitles' 
@@ -94,7 +93,7 @@ const Stack = createStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Anime">
+      <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Login" component={loginScreen} />
         <Stack.Screen name="Manga" component={mangaScreen} />
