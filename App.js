@@ -7,7 +7,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 //import LoginForm from './components/login'
 import DisplayAnImage from './components/manga'
 import DisplayAnime from './components/anime'
-import MTitles from './components/mangaTitles'
+import MTitles from './components/mangaTitles' 
 
 function HomeScreen({ navigation }) {
   return (
