@@ -9,12 +9,13 @@ import DisplayAnImage from './components/manga'
 import DisplayAnime from './components/anime'
 import MTitles from './components/mangaTitles' 
 import ATitles from './components/animeTitles' 
+import Details from './components/addCart';
 
 function HomeScreen({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text style={{ textAlign:'center', fontWeight:'bold', fontSize:90 }}>Welcome to Nerdhub</Text>
-      <Text style={{ textAlign:'center', fontSize:20, marginTop:50 }}>A project where you can check off manga and anime you have read and watched. As well as add them to a shopping cart.</Text>
+      <Text style={{ textAlign:'center', fontSize:20, marginTop:50 }}>A project where you can see a database of different manga and anime and learn about them.</Text>
       <Text style={{ textAlign:'center', fontSize:20, marginTop:50 }}></Text>
       <Button title="Login" onPress={() => navigation.navigate('Login')}/>
     </View>
@@ -42,7 +43,8 @@ function loginScreen({ navigation }) {
           <Button title="Content page" onPress={() =>{setLogin(); navigation.navigate('Manga')}}></Button>
         </>
       }
-      {/* <LoginForm/> */}
+      {/* <LoginForm/>
+      <Button onPress={navigation.navigate('loginScreen')} color="black" title="Submit"></Button> */}
     </View>
   );
 }
@@ -53,10 +55,10 @@ function mangaScreen({ navigation }) {
     <View>
       <Text style={{ textAlign:'center', fontWeight:'bold', fontSize:90 }}>Manga</Text>
       <Button title="Anime" onPress={() => navigation.navigate('Anime')}></Button>
-      <Button title="Cart" onPress={() => navigation.navigate('Cart')}></Button>
       <Button title="Logout" onPress={() => navigation.navigate('Login')}></Button>
       <DisplayAnImage/>
       <MTitles/>
+      <Details/>
     </View>
   );
 }
@@ -67,7 +69,6 @@ function animeScreen({ navigation }) {
     <View>
       <Text style={{ textAlign:'center', fontWeight:'bold', fontSize:90 }}>Anime</Text>
       <Button title="Manga" onPress={() => navigation.navigate('Manga')}></Button>
-      <Button title="Cart" onPress={() => navigation.navigate('Cart')}></Button>
       <Button title="Logout" onPress={() => navigation.navigate('Login')}></Button>
       <DisplayAnime/>
       <ATitles/>
@@ -91,7 +92,7 @@ const Stack = createStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator initialRouteName="Manga">
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Login" component={loginScreen} />
         <Stack.Screen name="Manga" component={mangaScreen} />

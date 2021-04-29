@@ -1,45 +1,92 @@
-import React, { Component } from 'react';
-import { View, Text, TextInput, Button } from 'react-native';
-import { useState } from 'react';
+import { StatusBar } from 'expo-status-bar';
+import React from 'react';
+import { useState } from "react"; 
+import { render } from 'react-dom';
+import { Button, StyleSheet, Text, View, TextInput} from 'react-native';
+//import {loginScreen} from '..../App.js'
 
-// const styles = StyleSheet.create({
-//   container: {
-//     padding: 50,
-//     flexDirection: 'row',
-//     justifyContent: 'space-between'
-//   },
-//   tinyLogo: {
-//     width: 326,
-//     height: 489,
-    
-//   },
-// });
-
-class LoginForm extends Component {
-  render() {
-  const [username, setUsername] = useState("")
-  const [password, setPassword] = useState("")
-  const [Login, setLogin] = useState(false)
-  const [showLogin, setShowLogin] = useState(false)
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      {!Login ?
-        <>
-          <Text>Login below please</Text>
-          <TextInput placeholder="username" value={username} onChangeText={(un => setUsername(un))}></TextInput>
-          <TextInput placeholder="password" value={password} secureTextEntry={true} onChangeText={(pw => setPassword(pw))}></TextInput>
-          <Button title="Log in" onPress={() => {setLogin(true); setShowLogin(false) }}></Button>
-        </>
-        :
-        <>
-          <Text>Welcome {username}</Text>
-          <Text>Please proceed to the next page to see what Nerdhub has to offer.</Text>
-          <Button title="Content page" onPress={() =>{setLogin(); navigation.navigate('Manga')}}></Button>
-        </>
-      }
-    </View>
-    );
+export function Loginform() {
+  
+   let [formFields, setFormFields] = useState([
+      {
+         label: "Username",
+         placeholder:"U$er_example1",
+         regEx:/[a-z\D\d]+/,
+         valid: false,
+         value: "",
+         loggedIn: false,
+         errorMsg:"Can include any special character,number, or character.",
+      },
+      {
+         label: "Password",
+         placeholder:"",
+         regEx:/[a-z\D\d]+/,
+         valid: false,
+         value: "",
+         loggedIn: false,
+         errorMsg:"Please retry your password",
+      },
+   ])
+   
+   let textChange = (value, formField) => {
+      console.log(value)
+      setFormFields((prevValue) => {
+         let newArray = [...prevValue]
+         let obj = newArray.find((ff) => ff.label == formField.label)
+        obj.value = value
+         obj.valid = formField.regEx.test(value)
+         return newArray
+   })
   }
+
+  let formValid = true
+  for(var elem of formFields){
+    formValid = formValid && elem.valid
+  }
+
+  let submitForm = () =>{
+    console.log(
+        formFields.map((field)=>{
+          return{
+              label: field.label,
+              value: field.value,
+            }
+          }))
+    }
+ 
+   return (
+      <View style={styles.body}>
+            {formFields.map((formField)=>(
+               <>
+               <Text>{formField.label}</Text>
+               <TextInput
+               keyboardType = {formField.numeric ? "numeric" : undefined}
+               style={styles.container} placeholder={formField.placeholder} 
+               onChangeText={(value) => textChange(value, formField)}
+               value={formField.value}  secureTextEntry={true}
+               ></TextInput>
+            {!formField.valid ? (<Text style={styles.error}>{formField.errorMsg}</Text>) : undefined}
+               </>
+            ))}
+            <Button onPress={navigation.navigate('Manga')} color="black" title="Submit"></Button>
+      </View>
+      );
 }
 
-export default LoginForm;
+            
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor:"white",
+    width:"700px",
+    height:"30px",
+  },
+  view:{
+    marginVertical:"30px",
+  },
+  error:{
+    color:"red",
+  },
+});
+
+export default Loginform;
