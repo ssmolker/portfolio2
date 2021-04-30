@@ -10,6 +10,8 @@ import MTitles from './components/mangaTitles'
 import ATitles from './components/animeTitles' 
 import Details from './components/mDetails';
 import AnimeDetails from './components/aDetails';
+import AboutMe from './components/aboutMe';
+
 
 function HomeScreen({ navigation }) {
   return (
@@ -56,6 +58,7 @@ function mangaScreen({ navigation }) {
       <Text style={{ textAlign:'center', fontWeight:'bold', fontSize:90 }}>Manga</Text>
       <Button title="Anime" onPress={() => navigation.navigate('Anime')}></Button>
       <Button title="Logout" onPress={() => navigation.navigate('Login')}></Button>
+      <Button title="About" onPress={() => navigation.navigate('About')}></Button>
       <DisplayAnImage/>
       <MTitles/>
       <Details/>
@@ -70,6 +73,7 @@ function animeScreen({ navigation }) {
       <Text style={{ textAlign:'center', fontWeight:'bold', fontSize:90 }}>Anime</Text>
       <Button title="Manga" onPress={() => navigation.navigate('Manga')}></Button>
       <Button title="Logout" onPress={() => navigation.navigate('Login')}></Button>
+      <Button title="About" onPress={() => navigation.navigate('About')}></Button>
       <DisplayAnime/>
       <ATitles/>
       <AnimeDetails/>
@@ -77,13 +81,23 @@ function animeScreen({ navigation }) {
   );
 }
 
-function cartScreen({ navigation }) {
+function aboutScreen({ navigation }) {
   return (
     <View>
-      <Text style={{ textAlign:'center', fontWeight:'bold', fontSize:90 }}>Shopping Cart</Text>
+      <Text style={{ textAlign:'center', fontWeight:'bold', fontSize:90 }}>About Me</Text>
       <Button title="Anime" onPress={() => navigation.navigate('Anime')}></Button>
       <Button title="Manga" onPress={() => navigation.navigate('Manga')}></Button>
       <Button title="Logout" onPress={() => navigation.navigate('Login')}></Button>
+      {/* <Text style={{flexDirection: 'row', justifyContent: 'space-between'}}>Hi my names Sasha, and I choose to do a project like this because I we enjoy 
+        watching anime, and reading manga. I tend to use a lot of databases to find new 
+        things to watch and see what is currently airing. Along with this I use them to 
+        find new series to read. I wanted </Text>
+      <Image
+        //sbr
+        style={{flexDirection: 'row', justifyContent: 'space-between', width: 326, height: 489,}}
+        source={{uri: 'https://images-na.ssl-images-amazon.com/images/I/71%2BqAJehpkL._SL1500_.jpg'}}
+      /> */}
+      <AboutMe/>
     </View>
   );
 }
@@ -93,12 +107,12 @@ const Stack = createStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator initialRouteName="About">
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Login" component={loginScreen} />
         <Stack.Screen name="Manga" component={mangaScreen} />
         <Stack.Screen name="Anime" component={animeScreen} />
-        <Stack.Screen name="Cart" component={cartScreen} />
+        <Stack.Screen name="About" component={aboutScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
