@@ -24,7 +24,7 @@ class AboutMe extends Component {
     return (
       <View style={styles.container}>
       <Image
-        //pineapple
+        //me
         style={styles.tinyLogo}
         source={{uri: 'https://scontent-atl3-1.xx.fbcdn.net/v/t1.6435-9/45421899_656158358119062_4313687894507126784_n.jpg?_nc_cat=100&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=Ka7pBQIUNg0AX_yUtGp&_nc_ht=scontent-atl3-1.xx&oh=9d5f994cd445214527b208fa2d201ad3&oe=60AFA4E3'}}
       />

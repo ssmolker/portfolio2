@@ -45,15 +45,12 @@ function loginScreen({ navigation }) {
           <Button title="Content page" onPress={() =>{setLogin(); navigation.navigate('Manga')}}></Button>
         </>
       }
-      {/* <LoginForm/>
-      <Button onPress={navigation.navigate('loginScreen')} color="black" title="Submit"></Button> */}
     </View>
   );
 }
 
 function mangaScreen({ navigation }) {
   return (
-    //style={{flexDirection: 'row', justifyContent: 'space-between'}}
     <View>
       <Text style={{ textAlign:'center', fontWeight:'bold', fontSize:90 }}>Manga</Text>
       <Button title="Anime" onPress={() => navigation.navigate('Anime')}></Button>
@@ -68,7 +65,6 @@ function mangaScreen({ navigation }) {
 
 function animeScreen({ navigation }) {
   return (
-    //style={{flexDirection: 'row', justifyContent: 'space-between'}}
     <View>
       <Text style={{ textAlign:'center', fontWeight:'bold', fontSize:90 }}>Anime</Text>
       <Button title="Manga" onPress={() => navigation.navigate('Manga')}></Button>
@@ -88,15 +84,6 @@ function aboutScreen({ navigation }) {
       <Button title="Anime" onPress={() => navigation.navigate('Anime')}></Button>
       <Button title="Manga" onPress={() => navigation.navigate('Manga')}></Button>
       <Button title="Logout" onPress={() => navigation.navigate('Login')}></Button>
-      {/* <Text style={{flexDirection: 'row', justifyContent: 'space-between'}}>Hi my names Sasha, and I choose to do a project like this because I we enjoy 
-        watching anime, and reading manga. I tend to use a lot of databases to find new 
-        things to watch and see what is currently airing. Along with this I use them to 
-        find new series to read. I wanted </Text>
-      <Image
-        //sbr
-        style={{flexDirection: 'row', justifyContent: 'space-between', width: 326, height: 489,}}
-        source={{uri: 'https://images-na.ssl-images-amazon.com/images/I/71%2BqAJehpkL._SL1500_.jpg'}}
-      /> */}
       <AboutMe/>
     </View>
   );
