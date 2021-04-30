@@ -7,6 +7,7 @@ For portfolio 2, I choose to do a new project (option 2) that allows users to se
 - Anime/ Manga poster
     - Title 
     - Details of Anime/ Manga
+- About me
 
 ## Screens
 1. Home
