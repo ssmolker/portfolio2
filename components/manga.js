@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, View, Image, StyleSheet,} from 'react-native'; 
+import {Button, View, Image, StyleSheet,} from 'react-native'; 
 
 const styles = StyleSheet.create({
   container: {
@@ -20,8 +20,8 @@ class DisplayAnImage extends Component {
       <View style={styles.container}>
         <Image
         //sbr
-          style={styles.tinyLogo}
-          source={{uri: 'https://images-na.ssl-images-amazon.com/images/I/91gAXaFOojL.jpg'}}
+        style={styles.tinyLogo}
+        source={{uri: 'https://images-na.ssl-images-amazon.com/images/I/91gAXaFOojL.jpg'}}
         />
         <Image
         //DS
